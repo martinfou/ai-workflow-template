@@ -99,15 +99,37 @@ See [../templates/bug-fix-template.md](../templates/bug-fix-template.md) for the
 
 **File Path**: `backlog/bugs/BF-XXX-bug-description.md`
 
+## Backlog Dependency Management
+
+### Dependency Sorting
+
+The backlog should be sorted by dependencies before prioritizing. This ensures that:
+- Items with no dependencies are ready to start
+- Prerequisites are completed before dependent items
+- Sprint planning can select items without blocking dependencies
+
+**Sorting Process**:
+1. Review all backlog items and their dependencies
+2. Create a dependency graph
+3. Sort items so prerequisites come first
+4. Within the same dependency level, sort by priority
+
+**Example**:
+- FR-001: User Authentication (no dependencies) → First
+- FR-002: User Profile (depends on FR-001) → Second
+- FR-003: User Settings (depends on FR-002) → Third
+
 ## Backlog Prioritization
 
 ### Prioritization Criteria
 
 1. **Business Value**: How important is this to users?
 2. **Technical Risk**: How risky is the implementation?
-3. **Dependencies**: What other work depends on this?
+3. **Dependencies**: What other work depends on this? (Sort by dependencies first, then prioritize within dependency levels)
 4. **Effort**: How much work is required?
 5. **Urgency**: How time-sensitive is this?
+
+**Note**: Prioritization happens within each dependency level after sorting by dependencies.
 
 ### Priority Matrix
 
@@ -125,9 +147,11 @@ See [../templates/bug-fix-template.md](../templates/bug-fix-template.md) for the
 1. **Review Backlog**: Review all backlog items
 2. **Clarify Requirements**: Ensure items are well-defined
 3. **Estimate Points**: Assign story points using Fibonacci
-4. **Prioritize**: Order items by priority
-5. **Break Down**: Split large items into smaller tasks
-6. **Update Status**: Update status of items
+4. **Identify Dependencies**: Document all dependencies for each item
+5. **Sort by Dependencies**: Order backlog so items with dependencies come after prerequisites
+6. **Prioritize**: Order items by priority (within same dependency level)
+7. **Break Down**: Split large items into smaller tasks
+8. **Update Status**: Update status of items
 
 ### Refinement Checklist
 

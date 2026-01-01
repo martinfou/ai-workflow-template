@@ -21,6 +21,34 @@ This document defines the process for managing the product backlog, including ho
 - **⏳ In Progress**: Item is currently being worked on (assigned to active sprint)
 - **✅ Completed**: Item is finished, tested, and verified
 
+### Status Lifecycle Diagram
+
+The following diagram visualizes the status transitions for backlog items:
+
+```mermaid
+stateDiagram-v2
+    [*] --> NotStarted: Item Created
+    NotStarted --> InProgress: Work Begins
+    InProgress --> Completed: Work Finished
+    InProgress --> NotStarted: Work Paused/Cancelled
+    Completed --> [*]
+    
+    note right of NotStarted
+        Item in backlog
+        Not assigned to sprint
+    end note
+    
+    note right of InProgress
+        Item assigned to sprint
+        Currently being worked on
+    end note
+    
+    note right of Completed
+        Item finished
+        Tested and verified
+    end note
+```
+
 ## Adding Items to Backlog
 
 ### Feature Request Process
@@ -43,6 +71,41 @@ This document defines the process for managing the product backlog, including ho
    - Update priority if needed
    - Break down into tasks if large
 
+#### Feature Request Workflow Diagram
+
+The following diagram shows the complete workflow for feature requests from creation to completion:
+
+```mermaid
+flowchart TD
+    A[Create Feature Request] --> B[Use Feature Request Template]
+    B --> C[Assign Unique ID FR-XXX]
+    C --> D[Fill Required Fields]
+    D --> E[Document Dependencies]
+    E --> F[Save to features/FR-XXX-name.md]
+    F --> G[Add to Product Backlog Table]
+    G --> H[Set Status: Not Started]
+    H --> I[Assign Priority]
+    I --> J[Estimate Story Points]
+    J --> K{Backlog Refinement}
+    K -->|Clarify Requirements| L[Update Feature Request]
+    L --> K
+    K -->|Identify Dependencies| M[Review All Dependencies]
+    M --> N[Sort Backlog by Dependency Order]
+    N --> O{Ready for Sprint?}
+    O -->|No| K
+    O -->|Yes| P[Select for Sprint Planning]
+    P --> Q{All Dependencies Resolved?}
+    Q -->|No| R[Include Dependencies in Sprint]
+    Q -->|Yes| S[Add to Sprint Planning Document]
+    R --> S
+    S --> T[Break Down into Tasks]
+    T --> U[Update Status: In Progress]
+    U --> V[Work on Feature]
+    V --> W[Complete Feature]
+    W --> X[Update Status: Completed]
+    X --> Y[Mark Acceptance Criteria Complete]
+```
+
 ### Bug Fix Process
 
 1. **Create Bug Fix**:
@@ -61,6 +124,38 @@ This document defines the process for managing the product backlog, including ho
    - Critical bugs may need immediate attention
    - High priority bugs should be addressed in next sprint
    - Medium/Low priority bugs can wait for sprint planning
+
+#### Bug Fix Workflow Diagram
+
+The following diagram shows the complete workflow for bug fixes from creation to completion, including decision points for critical bugs:
+
+```mermaid
+flowchart TD
+    A[Create Bug Fix] --> B[Use Bug Fix Template]
+    B --> C[Assign Unique ID BF-XXX]
+    C --> D[Fill Required Fields]
+    D --> E[Document Steps to Reproduce]
+    E --> F[Save to bugs/BF-XXX-description.md]
+    F --> G[Add to Product Backlog Table]
+    G --> H[Set Status: Not Started]
+    H --> I[Assign Priority]
+    I --> J{Is Critical?}
+    J -->|Yes| K[Immediate Action Required]
+    K --> L[Add to Current Sprint]
+    J -->|No| M[Estimate Story Points]
+    M --> N{High Priority?}
+    N -->|Yes| O[Address in Next Sprint]
+    N -->|No| P[Wait for Sprint Planning]
+    O --> Q[Add to Sprint Planning]
+    P --> Q
+    L --> Q
+    Q --> R[Break Down into Tasks]
+    R --> S[Update Status: In Progress]
+    S --> T[Work on Bug Fix]
+    T --> U[Complete Bug Fix]
+    U --> V[Update Status: Completed]
+    V --> W[Verify Fix]
+```
 
 ## Updating Backlog Items
 
@@ -121,9 +216,11 @@ This document defines the process for managing the product backlog, including ho
 1. Review new backlog items
 2. Clarify requirements for unclear items
 3. Estimate story points for unestimated items
-4. Prioritize items
-5. Break down large items
-6. Remove obsolete items
+4. Identify and document dependencies
+5. Sort backlog by dependency order
+6. Prioritize items
+7. Break down large items
+8. Remove obsolete items
 
 ### Refinement Checklist
 
@@ -138,15 +235,64 @@ For each backlog item:
 - [ ] Dependencies are identified
 - [ ] Business value is documented
 
+## Dependency Management
+
+### Identifying Dependencies
+
+Dependencies should be documented in each backlog item's "Dependencies" section. Common dependency types include:
+
+- **Blocking Dependencies**: Item A must be completed before Item B can start
+- **Enabling Dependencies**: Item A makes Item B easier or better, but not strictly required
+- **Technical Dependencies**: Item A requires specific technical infrastructure from Item B
+- **Data Dependencies**: Item A requires data structures or APIs from Item B
+- **Feature Dependencies**: Item A builds upon functionality in Item B
+
+### Sorting Backlog by Dependencies
+
+**Process**:
+1. **Review All Dependencies**: Go through each backlog item and verify dependencies are documented
+2. **Create Dependency Graph**: Map out which items depend on which other items
+3. **Identify Dependency Chains**: Find items that have no dependencies (can start immediately)
+4. **Order by Dependency**: Sort backlog so items with dependencies come after their prerequisites
+5. **Resolve Circular Dependencies**: If circular dependencies exist, break them by:
+   - Combining items if they're tightly coupled
+   - Splitting items to remove the circular dependency
+   - Identifying a minimal implementation that breaks the cycle
+
+**Sorting Rules**:
+- Items with no dependencies should be at the top (ready to start)
+- Items that depend on completed items should come next
+- Items with uncompleted dependencies should be lower in the backlog
+- Within the same dependency level, sort by priority (Critical → High → Medium → Low)
+
+**Example Dependency Ordering**:
+```
+1. FR-001: User Authentication (no dependencies) - 🔴 Critical
+2. FR-002: User Profile (depends on FR-001) - 🟠 High
+3. FR-003: User Settings (depends on FR-002) - 🟡 Medium
+4. FR-004: Advanced Features (depends on FR-001, FR-002) - 🟠 High
+```
+
+### Dependency Sorting Checklist
+
+- [ ] All dependencies are documented in backlog items
+- [ ] Dependency graph is created and reviewed
+- [ ] Items are sorted so prerequisites come first
+- [ ] Circular dependencies are identified and resolved
+- [ ] Backlog table is updated to reflect dependency order
+- [ ] Items with blocked dependencies are clearly marked
+
 ## Prioritization Process
 
 ### Prioritization Criteria
 
 1. **Business Value**: How important is this to users?
 2. **Technical Risk**: How risky is the implementation?
-3. **Dependencies**: What other work depends on this?
+3. **Dependencies**: What other work depends on this? (Items with no dependencies are prioritized first)
 4. **Effort**: How much work is required?
 5. **Urgency**: How time-sensitive is this?
+
+**Note**: After sorting by dependencies, prioritize within each dependency level using the criteria above.
 
 ### Priority Assignment
 
@@ -176,12 +322,16 @@ For each backlog item:
 ### Sprint Planning Process
 
 1. **Select Items from Backlog**:
-   - Review prioritized backlog items
+   - Review dependency-sorted backlog items
    - Select items for sprint based on:
-     - Priority
+     - Dependency order (items with completed dependencies first)
+     - Priority (within same dependency level)
      - Team velocity
-     - Dependencies
      - Sprint goal
+   - Ensure all dependencies for selected items are either:
+     - Already completed
+     - Included in the same sprint
+     - Planned for earlier sprints
 
 2. **Add to Sprint Planning Document**:
    - Copy feature request/bug fix details
@@ -196,6 +346,8 @@ For each backlog item:
 
 ### Sprint Planning Checklist
 
+- [ ] Backlog sorted by dependencies
+- [ ] Dependencies for selected items are resolved (completed or in sprint)
 - [ ] Backlog items selected for sprint
 - [ ] Items added to sprint planning document
 - [ ] Items broken down into tasks
@@ -214,6 +366,8 @@ For each backlog item:
 
 **Weekly**:
 - Review backlog during refinement
+- Update dependencies as needed
+- Re-sort backlog by dependency order
 - Update priorities if needed
 - Remove obsolete items
 
@@ -276,10 +430,11 @@ For each backlog item:
 ### Managing Backlog
 
 1. **Keep It Updated**: Regular refinement and updates
-2. **Prioritize Regularly**: Review priorities frequently
-3. **Break Down Large Items**: Keep items manageable
-4. **Document Decisions**: Record why items are prioritized
-5. **Communicate Changes**: Keep team informed
+2. **Sort by Dependencies**: Always maintain dependency order
+3. **Prioritize Regularly**: Review priorities frequently (within dependency levels)
+4. **Break Down Large Items**: Keep items manageable
+5. **Document Decisions**: Record why items are prioritized
+6. **Communicate Changes**: Keep team informed
 
 ## References
 

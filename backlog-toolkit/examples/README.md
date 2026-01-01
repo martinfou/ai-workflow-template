@@ -9,6 +9,7 @@ This directory contains filled-out examples of each template to help you underst
 - **sprint-planning-example.md** - A complete sprint planning example
 - **product-backlog-example.md** - A sample product backlog table
 - **git-commit-example.md** - Examples of git commit messages
+- **workflow-diagrams-example.md** - Mermaid.js workflow diagrams for backlog management
 
 ## How to Use These Examples
 
