@@ -1,0 +1,155 @@
+# Backlog Management Package Configuration
+# Customize this file to match your project's needs
+
+project:
+  # Project name
+  name: "Your Project Name"
+  
+  # ID format for backlog items
+  # Options: FR-XXX, FEAT-XXX, STORY-XXX, US-XXX, or custom
+  id_format: "FR-XXX"  # Feature Request format
+  bug_id_format: "BF-XXX"  # Bug Fix format
+  
+  # Sprint configuration
+  sprint_duration: 2  # weeks
+  sprint_duration_days: 14  # days (alternative to weeks)
+  
+  # Story point scale
+  # Options: fibonacci, linear, t-shirt
+  story_point_scale: fibonacci
+  
+  # Story point values (if using custom scale)
+  story_points:
+    - 1
+    - 2
+    - 3
+    - 5
+    - 8
+    - 13
+
+paths:
+  # Base directory for project management files
+  base: "project-management"
+  
+  # Backlog paths
+  backlog: "project-management/backlog"
+  product_backlog: "project-management/backlog/product-backlog.md"
+  feature_requests: "project-management/backlog/feature-requests"
+  bug_fixes: "project-management/backlog/bug-fixes"
+  
+  # Sprint paths
+  sprints: "project-management/sprints"
+  
+  # Template paths (relative to package root)
+  templates: "templates"
+  examples: "examples"
+  processes: "processes"
+
+priorities:
+  # Priority emoji mappings
+  critical: "🔴"
+  high: "🟠"
+  medium: "🟡"
+  low: "🟢"
+  
+  # Priority labels (alternative to emojis)
+  critical_label: "Critical"
+  high_label: "High"
+  medium_label: "Medium"
+  low_label: "Low"
+
+status:
+  # Status emoji mappings
+  not_started: "⭕"
+  in_progress: "⏳"
+  completed: "✅"
+  
+  # Status labels (alternative to emojis)
+  not_started_label: "Not Started"
+  in_progress_label: "In Progress"
+  completed_label: "Completed"
+
+# Platform-specific settings
+platform:
+  # Platform type: web, mobile-ios, mobile-android, desktop, backend, api
+  type: "web"
+  
+  # Framework/technology stack
+  framework: ""  # e.g., React, Flutter, Django, etc.
+  
+  # Environment details template
+  environments:
+    - "Development"
+    - "Staging"
+    - "Production"
+
+# Integration settings
+integrations:
+  # GitHub Issues integration
+  github:
+    enabled: false
+    repository: ""
+    issue_template: true
+  
+  # Jira integration
+  jira:
+    enabled: false
+    project_key: ""
+    issue_type_mapping:
+      feature_request: "Story"
+      bug_fix: "Bug"
+  
+  # Linear integration
+  linear:
+    enabled: false
+    team_id: ""
+  
+  # Git commit message format
+  git:
+    commit_format: "feat({id}): {description}"
+    # Example: "feat(FR-042): Add user authentication"
+
+# Validation settings
+validation:
+  # Require minimum number of acceptance criteria
+  min_acceptance_criteria: 3
+  
+  # Require story points estimation
+  require_story_points: true
+  
+  # Require priority assignment
+  require_priority: true
+  
+  # Require user story format
+  require_user_story: true
+  
+  # Check for broken links
+  check_links: true
+
+# Reporting settings
+reporting:
+  # Generate backlog statistics
+  generate_stats: true
+  
+  # Track velocity
+  track_velocity: true
+  
+  # Calculate cycle time
+  calculate_cycle_time: false
+
+# Custom fields (add project-specific fields)
+custom_fields:
+  # Example custom fields (uncomment and customize)
+  # component: "Component name (e.g., Frontend, Backend, API)"
+  # epic: "Epic name or ID"
+  # release: "Target release version"
+  # owner: "Item owner/assignee"
+
+# Notes
+# - Update paths to match your project structure
+# - Customize ID formats to match your conventions
+# - Adjust sprint duration based on your team's cadence
+# - Modify priority/status emojis if needed
+# - Enable integrations as needed
+# - Add custom fields for project-specific needs
+
