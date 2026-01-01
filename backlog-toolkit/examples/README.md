@@ -8,6 +8,7 @@ This directory contains filled-out examples of each template to help you underst
 - **bug-fix-example.md** - A complete bug fix example
 - **sprint-planning-example.md** - A complete sprint planning example
 - **product-backlog-example.md** - A sample product backlog table
+- **git-commit-example.md** - Examples of git commit messages
 
 ## How to Use These Examples
 

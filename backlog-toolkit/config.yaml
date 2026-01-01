@@ -34,8 +34,8 @@ paths:
   # Backlog paths
   backlog: "project-management/backlog"
   product_backlog: "project-management/backlog/product-backlog.md"
-  feature_requests: "project-management/backlog/feature-requests"
-  bug_fixes: "project-management/backlog/bug-fixes"
+  features: "project-management/backlog/features"
+  bugs: "project-management/backlog/bugs"
   
   # Sprint paths
   sprints: "project-management/sprints"

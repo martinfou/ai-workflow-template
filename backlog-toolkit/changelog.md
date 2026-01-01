@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Placeholder/helper text in templates with examples
 - Process diagrams using Mermaid
 - Cross-reference fixes throughout all documentation
+- Git commit message template (git-commit-template.md and .txt)
+- Git commit message examples (git-commit-example.md)
 
 ### Changed
 - Updated all cross-references to use relative paths consistently

@@ -1,0 +1,6 @@
+# Ignore generated project-management directories created by setup script
+project-management/
+
+# Ignore any test/example project-management directories in scripts
+scripts/project-management/
+

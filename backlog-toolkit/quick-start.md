@@ -18,7 +18,7 @@ A complete backlog management system with:
 cd /path/to/your/project
 
 # Copy the package to your project-management directory
-cp -r REUSABLE_PACKAGE/* project-management/
+cp -r backlog-toolkit/* project-management/
 ```
 
 Or manually copy:
@@ -29,8 +29,8 @@ Or manually copy:
 
 ```bash
 cd project-management
-mkdir -p backlog/feature-requests
-mkdir -p backlog/bug-fixes
+mkdir -p backlog/features
+mkdir -p backlog/bugs
 mkdir -p sprints
 ```
 
@@ -38,19 +38,19 @@ mkdir -p sprints
 
 1. **Create main backlog table**:
    ```bash
-   cp templates/product-backlog-table-template.md backlog/product-backlog.md
+   cp docs/templates/product-backlog-table-template.md backlog/product-backlog.md
    ```
 
 2. **Create your first feature request**:
    ```bash
-   cp templates/feature-request-template.md backlog/feature-requests/FR-001-your-first-feature.md
+   cp docs/templates/feature-request-template.md backlog/features/FR-001-your-first-feature.md
    # Edit FR-001-your-first-feature.md and fill in the details
    ```
 
 3. **Add entry to backlog table**:
    - Open `backlog/product-backlog.md`
    - Add a row to the Feature Requests table
-   - Link to your feature file: `[FR-001](feature-requests/FR-001-your-first-feature.md)`
+   - Link to your feature file: `[FR-001](features/FR-001-your-first-feature.md)`
 
 ## 🎯 Essential Customization
 
@@ -76,23 +76,23 @@ In bug fix template, update the Environment section:
 
 ### Adding a New Feature
 
-1. Copy `templates/feature-request-template.md`
-2. Save as `backlog/feature-requests/FR-XXX-feature-name.md`
+1. Copy `docs/templates/feature-request-template.md`
+2. Save as `backlog/features/FR-XXX-feature-name.md`
 3. Fill in all sections
 4. Add row to `backlog/product-backlog.md` table
 5. Done!
 
 ### Reporting a Bug
 
-1. Copy `templates/bug-fix-template.md`
-2. Save as `backlog/bug-fixes/BF-XXX-bug-description.md`
+1. Copy `docs/templates/bug-fix-template.md`
+2. Save as `backlog/bugs/BF-XXX-bug-description.md`
 3. Fill in steps to reproduce, expected/actual behavior
 4. Add row to `backlog/product-backlog.md` table
 5. Done!
 
 ### Planning a Sprint
 
-1. Copy `templates/sprint-planning-template.md`
+1. Copy `docs/templates/sprint-planning-template.md`
 2. Save as `sprints/sprint-XX-sprint-name.md`
 3. Add user stories from backlog
 4. Break down into tasks
@@ -143,9 +143,9 @@ A: Absolutely! They're designed to be adapted. Add/remove sections as needed.
 
 ## 🎓 Learning Resources
 
-- **Templates**: See `templates/` directory for detailed template files
-- **Processes**: See `processes/` directory for workflow documentation
-- **Package Overview**: See `REUSABLE_BACKLOG_PACKAGE.md` for comprehensive analysis
+- **Templates**: See `docs/templates/` directory for detailed template files
+- **Processes**: See `docs/processes/` directory for workflow documentation
+- **Template Catalog**: See `template-catalog.md` for template selection guide
 - **README**: See `README.md` for package overview
 
 ---

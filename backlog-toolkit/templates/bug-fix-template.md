@@ -14,7 +14,7 @@ This is a generic template for creating bug fix items. Copy this template when r
 1. Copy this template
 2. Assign unique ID (e.g., BF-001, BF-015, or use your ID format)
 3. Fill in all sections, especially reproduction steps
-4. Save to: `backlog/bug-fixes/[ID]-[bug-description].md`
+4. Save to: `backlog/bugs/[ID]-[bug-description].md`
 5. Add entry to main product backlog table
 
 ---

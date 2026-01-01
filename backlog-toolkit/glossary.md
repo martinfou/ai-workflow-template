@@ -151,10 +151,10 @@ Low priority. Future considerations with low user value. Can be deferred indefin
 ## File & Directory Terms
 
 ### Feature Requests Directory
-The directory containing individual feature request files (e.g., `backlog/feature-requests/`).
+The directory containing individual feature request files (e.g., `backlog/features/`).
 
 ### Bug Fixes Directory
-The directory containing individual bug fix files (e.g., `backlog/bug-fixes/`).
+The directory containing individual bug fix files (e.g., `backlog/bugs/`).
 
 ### Sprints Directory
 The directory containing sprint planning documents (e.g., `sprints/`).

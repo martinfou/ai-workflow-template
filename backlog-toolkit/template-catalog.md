@@ -10,6 +10,7 @@ Quick reference guide for all available templates in this package. Use this cata
 | [Bug Fix](templates/bug-fix-template.md) | Bug report or fix | Bug details, reproduction steps | BF-XXX.md | 10-20 min | 🟠 High |
 | [Sprint Planning](templates/sprint-planning-template.md) | Sprint setup and tracking | Backlog items, team capacity | sprint-XX.md | 1-2 hours | 🟡 Medium |
 | [Product Backlog Table](templates/product-backlog-table-template.md) | Central backlog tracking | Feature requests, bug fixes | product-backlog.md | 30-60 min | 🟠 High |
+| [Git Commit](templates/git-commit-template.md) | Commit message format | Code changes | N/A | 2-5 min | 🟡 Medium |
 
 ## Template Selection Guide
 

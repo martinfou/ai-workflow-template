@@ -68,7 +68,7 @@
 
 **Status**: ⏳ In Progress
 
-**Backlog Reference**: [FR-042](feature-requests/FR-042-user-authentication.md) - User Authentication
+**Backlog Reference**: [FR-042](features/FR-042-user-authentication.md) - User Authentication
 
 **Tasks**:
 
@@ -118,7 +118,7 @@
 
 **Status**: ⭕ Not Started
 
-**Backlog Reference**: [FR-042](feature-requests/FR-042-user-authentication.md) - User Authentication
+**Backlog Reference**: [FR-042](features/FR-042-user-authentication.md) - User Authentication
 
 **Tasks**:
 
@@ -163,7 +163,7 @@
 
 **Status**: ⭕ Not Started
 
-**Backlog Reference**: [FR-042](feature-requests/FR-042-user-authentication.md) - User Authentication
+**Backlog Reference**: [FR-042](features/FR-042-user-authentication.md) - User Authentication
 
 **Tasks**:
 

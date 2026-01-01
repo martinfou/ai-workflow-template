@@ -12,8 +12,8 @@ NC='\033[0m' # No Color
 
 # Default paths (can be overridden)
 BACKLOG_DIR="${1:-project-management/backlog}"
-FEATURE_REQUESTS_DIR="${BACKLOG_DIR}/feature-requests"
-BUG_FIXES_DIR="${BACKLOG_DIR}/bug-fixes"
+FEATURES_DIR="${BACKLOG_DIR}/features"
+BUGS_DIR="${BACKLOG_DIR}/bugs"
 PRODUCT_BACKLOG="${BACKLOG_DIR}/product-backlog.md"
 
 echo "Validating backlog structure..."
@@ -25,13 +25,13 @@ WARNINGS=0
 # Check if directories exist
 if [ ! -d "$BACKLOG_DIR" ]; then
     echo -e "${RED}✗ Backlog directory not found: $BACKLOG_DIR${NC}"
-    echo "  Create it with: mkdir -p $BACKLOG_DIR/{feature-requests,bug-fixes}"
+    echo "  Create it with: mkdir -p $BACKLOG_DIR/{features,bugs}"
     ((ERRORS++))
     exit 1
 fi
 
-if [ ! -d "$FEATURE_REQUESTS_DIR" ]; then
-    echo -e "${YELLOW}⚠ Feature requests directory not found: $FEATURE_REQUESTS_DIR${NC}"
+if [ ! -d "$FEATURES_DIR" ]; then
+    echo -e "${YELLOW}⚠ Features directory not found: $FEATURES_DIR${NC}"
     ((WARNINGS++))
 fi
 
@@ -53,8 +53,8 @@ echo ""
 echo "Checking file naming conventions..."
 
 # Check feature request files
-if [ -d "$FEATURE_REQUESTS_DIR" ]; then
-    FEATURE_FILES=$(find "$FEATURE_REQUESTS_DIR" -name "*.md" 2>/dev/null || true)
+if [ -d "$FEATURES_DIR" ]; then
+    FEATURE_FILES=$(find "$FEATURES_DIR" -name "*.md" 2>/dev/null || true)
     FEATURE_COUNT=$(echo "$FEATURE_FILES" | grep -v "^$" | wc -l || echo "0")
     
     if [ "$FEATURE_COUNT" -gt 0 ]; then
@@ -75,8 +75,8 @@ if [ -d "$FEATURE_REQUESTS_DIR" ]; then
 fi
 
 # Check bug fix files
-if [ -d "$BUG_FIXES_DIR" ]; then
-    BUG_FILES=$(find "$BUG_FIXES_DIR" -name "*.md" 2>/dev/null || true)
+if [ -d "$BUGS_DIR" ]; then
+    BUG_FILES=$(find "$BUGS_DIR" -name "*.md" 2>/dev/null || true)
     BUG_COUNT=$(echo "$BUG_FILES" | grep -v "^$" | wc -l || echo "0")
     
     if [ "$BUG_COUNT" -gt 0 ]; then

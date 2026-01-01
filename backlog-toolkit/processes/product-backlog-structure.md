@@ -12,11 +12,11 @@ This document defines the structure and templates for the product backlog, inclu
 project-management/
 ├── backlog/
 │   ├── product-backlog.md (main backlog file)
-│   ├── feature-requests/
+│   ├── features/
 │   │   ├── FR-001-feature-name.md
 │   │   ├── FR-002-feature-name.md
 │   │   └── ...
-│   └── bug-fixes/
+│   └── bugs/
 │       ├── BF-001-bug-description.md
 │       ├── BF-002-bug-description.md
 │       └── ...
@@ -70,7 +70,7 @@ See [../templates/feature-request-template.md](../templates/feature-request-temp
 
 **ID Format**: FR-XXX (or your custom format)
 
-**File Path**: `backlog/feature-requests/FR-XXX-feature-name.md`
+**File Path**: `backlog/features/FR-XXX-feature-name.md`
 
 ## Bug Fix Template
 
@@ -97,7 +97,7 @@ See [../templates/bug-fix-template.md](../templates/bug-fix-template.md) for the
 
 **ID Format**: BF-XXX (or your custom format)
 
-**File Path**: `backlog/bug-fixes/BF-XXX-bug-description.md`
+**File Path**: `backlog/bugs/BF-XXX-bug-description.md`
 
 ## Backlog Prioritization
 
@@ -166,7 +166,7 @@ Consider:
 1. Copy the Feature Request Template from [../templates/feature-request-template.md](../templates/feature-request-template.md)
 2. Assign unique ID: FR-XXX (use next available number)
 3. Fill in all required fields
-4. Save to: `backlog/feature-requests/FR-XXX-feature-name.md`
+4. Save to: `backlog/features/FR-XXX-feature-name.md`
 5. Add entry to `backlog/product-backlog.md` table
 
 ### Creating a New Bug Fix
@@ -177,7 +177,7 @@ Consider:
    - Steps to reproduce
    - Expected vs. actual behavior
    - Environment details
-4. Save to: `backlog/bug-fixes/BF-XXX-bug-description.md`
+4. Save to: `backlog/bugs/BF-XXX-bug-description.md`
 5. Add entry to `backlog/product-backlog.md` table
 
 ### Creating a New Sprint

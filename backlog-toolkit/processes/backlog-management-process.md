@@ -29,7 +29,7 @@ This document defines the process for managing the product backlog, including ho
    - Use feature request template
    - Assign unique ID (FR-XXX or your ID format)
    - Fill in all required fields
-   - Save to `feature-requests/[ID]-feature-name.md`
+   - Save to `features/[ID]-feature-name.md`
 
 2. **Add to Main Backlog**:
    - Add entry to product backlog table in `product-backlog.md`
@@ -49,7 +49,7 @@ This document defines the process for managing the product backlog, including ho
    - Use bug fix template
    - Assign unique ID (BF-XXX or your ID format)
    - Fill in all required fields including steps to reproduce
-   - Save to `bug-fixes/[ID]-bug-description.md`
+   - Save to `bugs/[ID]-bug-description.md`
 
 2. **Add to Main Backlog**:
    - Add entry to product backlog table

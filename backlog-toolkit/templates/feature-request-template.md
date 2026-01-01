@@ -14,7 +14,7 @@ This is a generic template for creating feature requests. Copy this template whe
 1. Copy this template
 2. Assign unique ID (e.g., FR-001, FR-042, or use your ID format)
 3. Fill in all sections
-4. Save to: `backlog/feature-requests/[ID]-[feature-name].md`
+4. Save to: `backlog/features/[ID]-[feature-name].md`
 5. Add entry to main product backlog table
 
 ---

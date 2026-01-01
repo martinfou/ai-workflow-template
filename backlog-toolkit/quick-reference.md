@@ -170,7 +170,7 @@ Common ID formats you can use:
 
 ```bash
 # 1. Copy template
-cp templates/feature-request-template.md backlog/feature-requests/FR-042-feature-name.md
+cp docs/templates/feature-request-template.md backlog/features/FR-042-feature-name.md
 
 # 2. Edit the file
 # 3. Add to product backlog table
@@ -180,7 +180,7 @@ cp templates/feature-request-template.md backlog/feature-requests/FR-042-feature
 
 ```bash
 # 1. Copy template
-cp templates/bug-fix-template.md backlog/bug-fixes/BF-015-bug-description.md
+cp docs/templates/bug-fix-template.md backlog/bugs/BF-015-bug-description.md
 
 # 2. Edit the file
 # 3. Add to product backlog table
@@ -190,7 +190,7 @@ cp templates/bug-fix-template.md backlog/bug-fixes/BF-015-bug-description.md
 
 ```bash
 # 1. Copy template
-cp templates/sprint-planning-template.md sprints/sprint-05-sprint-name.md
+cp docs/templates/sprint-planning-template.md sprints/sprint-05-sprint-name.md
 
 # 2. Edit the file
 # 3. Add user stories from backlog

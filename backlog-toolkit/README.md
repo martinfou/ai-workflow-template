@@ -29,6 +29,7 @@ This package contains:
    - Bug Fix Template
    - Product Backlog Table Template
    - Sprint Planning Template
+   - Git Commit Message Template
 
 2. **Process Documentation** (`processes/`)
    - Backlog Management Process
@@ -84,22 +85,25 @@ This package contains:
 cd /path/to/your/project
 
 # Copy the entire package
-cp -r REUSABLE_PACKAGE/* project-management/
+cp -r backlog-toolkit/* project-management/
 
-# Or copy specific directories
-cp -r backlog-toolkit/templates project-management/
-cp -r backlog-toolkit/processes project-management/
-cp -r backlog-toolkit/examples project-management/
+# Or copy specific directories (recommended: use setup script instead)
+mkdir -p project-management/docs
+cp -r backlog-toolkit/templates project-management/docs/
+cp -r backlog-toolkit/processes project-management/docs/
+cp -r backlog-toolkit/examples project-management/  # Optional
 ```
 
 ### Method 2: Manual Setup
 
 1. Create `project-management/` directory in your project
-2. Copy `templates/` directory
-3. Copy `processes/` directory
-4. Copy `examples/` directory (optional but recommended)
-5. Copy `config.yaml` (optional)
-6. Copy documentation files (README, quick-start, etc.)
+2. Create `docs/` subdirectory: `mkdir -p project-management/docs`
+3. Copy `templates/` directory to `docs/`: `cp -r templates project-management/docs/`
+4. Copy `processes/` directory to `docs/`: `cp -r processes project-management/docs/`
+5. Copy `examples/` directory (optional but recommended)
+6. Copy `config.yaml` (optional)
+7. Copy documentation files (README, quick-start, etc.)
+8. Run setup script to create structure: `./scripts/setup-backlog.sh`
 
 ### Method 3: Git Submodule (For Git Projects)
 
@@ -116,19 +120,20 @@ git clone <repository-url> project-management/backlog-package
 ### 1. Copy Templates to Your Project
 
 ```bash
-# Copy templates directory
-cp -r templates/ /path/to/your/project/project-management/
+# Create docs directory and copy templates
+mkdir -p /path/to/your/project/project-management/docs
+cp -r templates/ /path/to/your/project/project-management/docs/
 
 # Copy process documentation
-cp -r processes/ /path/to/your/project/project-management/
+cp -r processes/ /path/to/your/project/project-management/docs/
 ```
 
 ### 2. Create Backlog Structure
 
 ```bash
 cd /path/to/your/project/project-management/
-mkdir -p backlog/feature-requests
-mkdir -p backlog/bug-fixes
+mkdir -p backlog/features
+mkdir -p backlog/bugs
 mkdir -p sprints
 ```
 
@@ -147,9 +152,9 @@ mkdir -p sprints
 
 ### 4. Create Initial Backlog
 
-1. Copy `templates/product-backlog-table-template.md` to `backlog/product-backlog.md`
-2. Create your first feature request using `templates/feature-request-template.md`
-3. Create your first bug fix using `templates/bug-fix-template.md`
+1. Copy `docs/templates/product-backlog-table-template.md` to `backlog/product-backlog.md`
+2. Create your first feature request using `docs/templates/feature-request-template.md`
+3. Create your first bug fix using `docs/templates/bug-fix-template.md`
 
 ## 📁 Directory Structure
 
@@ -159,20 +164,22 @@ After setup, your structure should look like:
 project-management/
 ├── backlog/
 │   ├── product-backlog.md
-│   ├── feature-requests/
+│   ├── features/
 │   │   └── FR-XXX-feature-name.md
-│   └── bug-fixes/
+│   └── bugs/
 │       └── BF-XXX-bug-description.md
 ├── sprints/
 │   └── sprint-XX-sprint-name.md
-├── templates/
-│   ├── feature-request-template.md
-│   ├── bug-fix-template.md
-│   ├── product-backlog-table-template.md
-│   └── sprint-planning-template.md
-└── processes/
-    ├── backlog-management-process.md
-    └── product-backlog-structure.md
+└── docs/
+    ├── README.md
+    ├── templates/
+    │   ├── feature-request-template.md
+    │   ├── bug-fix-template.md
+    │   ├── product-backlog-table-template.md
+    │   └── sprint-planning-template.md
+    └── processes/
+        ├── backlog-management-process.md
+        └── product-backlog-structure.md
 ```
 
 ## 📋 Templates Overview
@@ -418,8 +425,8 @@ Absolutely! They're designed to be adapted. Add/remove sections as needed. See [
 
 ### How do I get started quickly?
 
-1. Copy [templates/](templates/) to your project
-2. Create directory structure (backlog/feature-requests, backlog/bug-fixes)
+1. Copy [templates/](templates/) to your project's `docs/` directory
+2. Create directory structure (backlog/features, backlog/bugs)
 3. Copy a template and fill it out
 4. Add entry to product backlog table
 5. See [quick-start.md](quick-start.md) for detailed steps

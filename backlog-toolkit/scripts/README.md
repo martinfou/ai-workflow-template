@@ -1,8 +1,48 @@
-# Validation Scripts
+# Scripts
 
-Scripts to validate backlog structure, templates, and cross-references.
+Scripts to set up, validate backlog structure, templates, and cross-references.
 
 ## Available Scripts
+
+### setup-backlog.sh
+
+Creates the basic folder structure for backlog management in the backlog-toolkit project.
+
+**Usage:**
+```bash
+./scripts/setup-backlog.sh
+```
+
+**Note:** This script creates the `project-management/` folder at the root of the backlog-toolkit directory, not in your project. This is for demonstration/example purposes within the toolkit itself.
+
+**What it does:**
+- Creates directory structure:
+  - `project-management/backlog/features/`
+  - `project-management/backlog/bugs/`
+  - `project-management/sprints/`
+  - `project-management/docs/` (for templates and processes)
+- Optionally copies templates directory to `docs/templates/`
+- Optionally copies processes directory to `docs/processes/`
+- Optionally creates initial product-backlog.md file
+
+**Example:**
+```bash
+# From your project root
+./scripts/setup-backlog.sh
+
+# Or specify a different project root
+./scripts/setup-backlog.sh /path/to/your/project
+```
+
+**Interactive prompts:**
+- Copy templates? (y/n)
+- Copy processes? (y/n)
+- Create initial product backlog? (y/n)
+
+**Output:**
+- Creates all necessary directories
+- Copies files if requested
+- Shows next steps and helpful commands
 
 ### validate-template.sh
 
@@ -24,7 +64,7 @@ Validates that a backlog item template is complete and properly formatted.
 
 **Example:**
 ```bash
-./scripts/validate-template.sh backlog/feature-requests/FR-042-user-authentication.md
+./scripts/validate-template.sh backlog/features/FR-042-user-authentication.md
 ```
 
 ### validate-backlog.sh
