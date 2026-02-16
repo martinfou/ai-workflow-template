@@ -1,64 +1,25 @@
-# Project Management
+# Project Management Workflow
 
-This directory contains the backlog management structure for this project.
+This directory contains the documentation and processes for managing the project backlog, features, bugs, and sprints.
 
-## Structure
+## How to use this workflow with AI
 
-```
-project-management/
-├── backlog/              # Active backlog items
-│   ├── product-backlog.md    # Main backlog overview
-│   ├── features/            # Feature requests (FR-XXX-*.md)
-│   └── bugs/                # Bug fixes (BF-XXX-*.md)
-├── sprints/             # Sprint planning documents
-│   └── sprint-XX-*.md
-└── docs/                # Reference documentation
-    ├── templates/       # Template files
-    └── processes/       # Process documentation
-```
+To have the AI assist you with project management tasks (like creating feature requests or bug reports), follow these steps:
 
-## Quick Start
+1. **Add the Process Document**: Add the following file to your chat:
+   `project-management/docs/processes/backlog-management-process.md`
 
-1. **View the backlog**: Open `backlog/product-backlog.md`
-2. **Create a feature**: Copy `docs/templates/feature-request-template.md` to `backlog/features/FR-XXX-name.md`
-3. **Create a bug fix**: Copy `docs/templates/bug-fix-template.md` to `backlog/bugs/BF-XXX-name.md`
-4. **Plan a sprint**: Copy `docs/templates/sprint-planning-template.md` to `sprints/sprint-XX-name.md`
+2. **Use the following prompt format**:
+   > "I want you to create a feature request to do x and y and z."
 
-## Workflow
+## What this workflow does
 
-### Daily Work
-- Update status in `backlog/product-backlog.md`
-- Work on items in `backlog/features/` or `backlog/bugs/`
+The `project-management` workflow, guided by the LLM, automates and standardizes the following processes:
 
-### Creating New Items
-- Use templates from `docs/templates/`
-- Add entry to `backlog/product-backlog.md`
-- Follow naming: `FR-XXX-feature-name.md` or `BF-XXX-bug-name.md`
+- **Backlog Management**: Maintaining a prioritized list of features and bugs in `product-backlog.md`.
+- **Feature/Bug Lifecycle**: Managing the state of items from "Not Started" to "Completed" using standardized templates.
+- **Sprint Planning**: Organizing items into sprints and breaking them down into actionable tasks.
+- **Dependency Tracking**: Identifying and managing technical and functional dependencies between backlog items.
+- **Documentation**: Ensuring all features and bugs are documented according to project standards.
 
-### Sprint Planning
-- Create sprint document in `sprints/`
-- Reference backlog items
-- Update backlog with sprint assignments
-
-## Reference Materials
-
-- **Templates**: See `docs/templates/` for creating new items
-- **Processes**: See `docs/processes/` for workflow guidance
-- **Documentation**: See `docs/README.md` for detailed reference guide
-
-## Status Values
-
-- ⭕ **Not Started**: Item not yet started
-- ⏳ **In Progress**: Item currently being worked on
-- ✅ **Completed**: Item finished and verified
-
-## Priority Levels
-
-- 🔴 **Critical**: Must be fixed/implemented immediately
-- 🟠 **High**: Should be addressed soon
-- 🟡 **Medium**: Nice to have, can wait
-- 🟢 **Low**: Future consideration
-
----
-
-For more information, see the backlog toolkit documentation.
+By providing the `backlog-management-process.md` file, the AI understands the specific file structure, naming conventions, and status transitions required for this project.

@@ -356,6 +356,21 @@ Dependencies should be documented in each backlog item's "Dependencies" section.
 - [ ] Backlog status updated
 - [ ] Sprint goal defined
 
+## Sprint Retrospective
+
+### Purpose
+The Sprint Retrospective (Retro Session) is held at the end of every sprint to inspect how the last sprint went with regards to people, relationships, process, and tools. The goal is to identify and agree on improvements for the next sprint.
+
+### Agenda
+1. **What went well?**: Celebrate successes and identify positive practices.
+2. **What could be improved?**: Identify bottlenecks, frustrations, or process gaps.
+3. **Action Items**: Define specific, actionable steps to improve the process in the next sprint.
+
+### Outcomes
+- A list of prioritized process improvements.
+- Updated documentation or templates if process changes are agreed upon.
+- Better team alignment and moral for the next sprint.
+
 ## Backlog Maintenance
 
 ### Regular Updates
@@ -375,6 +390,7 @@ Dependencies should be documented in each backlog item's "Dependencies" section.
 - Mark completed items as ✅ Completed
 - Review incomplete items
 - Move incomplete items to next sprint or back to backlog
+- **Conduct Sprint Retrospective (Retro Session)**: Identify improvements for the next sprint
 
 ### Backlog Cleanup
 

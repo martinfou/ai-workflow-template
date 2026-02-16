@@ -21,6 +21,8 @@ This is a generic template for creating bug fix items. Copy this template when r
 
 # Bug Fix: [ID] - [Bug Description]
 
+[← Back to Product Backlog](../product-backlog.md)
+
 **Status**: ⭕ Not Started  
 **Priority**: 🔴 Critical / 🟠 High / 🟡 Medium / 🟢 Low  
 **Story Points**: [X] (Fibonacci: 1, 2, 3, 5, 8, 13)  

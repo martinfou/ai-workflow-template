@@ -7,6 +7,8 @@ requires: [git]
 
 # Git Commit Message Template
 
+[← Back to Product Backlog](../backlog/product-backlog.md)
+
 This template provides a structured format for git commit messages that combines business context with technical details.
 
 ## Usage

@@ -21,6 +21,8 @@ This is a generic template for creating feature requests. Copy this template whe
 
 # Feature Request: [ID] - [Feature Title]
 
+[← Back to Product Backlog](../product-backlog.md)
+
 **Status**: ⭕ Not Started  
 **Priority**: 🔴 Critical / 🟠 High / 🟡 Medium / 🟢 Low  
 **Story Points**: [X] (Fibonacci: 1, 2, 3, 5, 8, 13)  

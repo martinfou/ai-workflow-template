@@ -7,6 +7,8 @@ requires: [markdown-support]
 
 # Sprint Planning Template
 
+[← Back to Product Backlog](../backlog/product-backlog.md)
+
 This template provides the structure for sprint planning documents. Adapt this template to your team's Agile/Scrum practices.
 
 ## Usage

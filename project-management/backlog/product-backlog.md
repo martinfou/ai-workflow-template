@@ -28,18 +28,14 @@ This is the main product backlog tracking all feature requests and bug fixes.
 
 | ID | Title | Priority | Points | Status | Sprint | Created | Updated |
 |----|-------|----------|--------|--------|--------|---------|---------|
-| [FR-001](features/FR-001-feature-name.md) | [Feature Title] | 🔴 Critical | [X] | ⭕ | - | 2026-01-10 | 2026-01-10 |
-| [FR-002](features/FR-002-feature-name.md) | [Feature Title] | 🟠 High | [X] | ⏳ | Sprint 1 | 2026-01-10 | 2026-01-10 |
-| [FR-003](features/FR-003-feature-name.md) | [Feature Title] | 🟡 Medium | [X] | ✅ | Sprint 1 | 2026-01-10 | 2026-01-10 |
+| [FR-001](features/FR-001-ai-agent-configs.md) | AI Agent Configuration Files | 🔴 Critical | 2 | ⭕ | Sprint 1 | 2026-02-14 | 2026-02-14 |
+| [FR-002](features/FR-002-init-git-commit-rules.md) | Git Initialization and Commit Standards | 🟠 High | 3 | ⭕ | Sprint 1 | 2026-02-14 | 2026-02-14 |
 
 ## Bug Fixes
 
 | ID | Title | Priority | Points | Status | Sprint | Created | Updated |
 |----|-------|----------|--------|--------|--------|---------|---------|
-| [BF-001](bugs/BF-001-bug-description.md) | [Bug Description] | 🔴 Critical | [X] | ⭕ | - | 2026-01-10 | 2026-01-10 |
-| [BF-002](bugs/BF-002-bug-description.md) | [Bug Description] | 🟠 High | [X] | ⏳ | Sprint 1 | 2026-01-10 | 2026-01-10 |
-| [BF-003](bugs/BF-003-bug-description.md) | [Bug Description] | 🟡 Medium | [X] | ✅ | Sprint 1 | 2026-01-10 | 2026-01-10 |
-
+| [BF-001](bugs/BF-001-ui-glitch-fix.md) | Example Bug for Demo | 🟢 Low | 1 | ⭕ | Sprint 1 | 2026-02-14 | 2026-02-14 |
 ---
 
 ## Status Values
