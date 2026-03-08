@@ -78,10 +78,6 @@ flowchart TD
 
 ---
 
-## MCP Server
-
-An [MCP server](../mcp-project-management/README.md) exposes this project-management workflow to AI clients (Cursor, Claude Desktop, OpenCode). Use tools, resources (`pm://` URIs), and prompts without manually attaching files.
-
 ## Related
 
 - [README.md](README.md) — Overview for humans

@@ -2,7 +2,7 @@
 
 This is the main product backlog tracking all user stories and defects.
 
-**Last Updated**: 2026-03-07
+**Last Updated**: 2026-03-08
 
 **Active Sprint**: [Sprint 1: AI Workflow Foundation](../sprints/sprint-01-ai-workflow-foundation.md)
 
@@ -10,6 +10,7 @@ This is the main product backlog tracking all user stories and defects.
 
 | ID | Title | Priority | Points | Status | Sprint | Created | Updated |
 |----|-------|----------|--------|--------|--------|---------|---------|
+| [US-005](user-stories/US-005-test-mcp-integration.md) | Test MCP Integration | 🟢 Low | 1 | ⭕ | - | 2026-03-08 | 2026-03-08 |
 | [US-001](user-stories/US-001-ai-agent-configs.md) | AI Agent Configuration Files | 🔴 Critical | 2 | ⭕ | [Sprint 1](../sprints/sprint-01-ai-workflow-foundation.md) | 2026-02-14 | 2026-02-14 |
 | [US-002](user-stories/US-002-init-git-commit-rules.md) | Git Initialization and Commit Standards | 🟠 High | 3 | ⭕ | [Sprint 1](../sprints/sprint-01-ai-workflow-foundation.md) | 2026-02-14 | 2026-02-14 |
 | [US-003](user-stories/US-003-root-docs-folder.md) | Root-Level Docs Folder | 🟡 Medium | 1 | ⭕ | [Sprint 1](../sprints/sprint-01-ai-workflow-foundation.md) | 2026-03-06 | 2026-03-06 |
