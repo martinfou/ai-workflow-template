@@ -1,6 +1,6 @@
 ---
-template_version: 1.1.0
-last_updated: 2025-01-27
+template_version: 1.2.0
+last_updated: 2026-03-07
 compatible_with: [all]
 requires: [git]
 ---
@@ -30,6 +30,22 @@ When you commit, your editor will open with this template. Fill in the sections 
 ```bash
 git commit
 ```
+
+---
+
+## Branching Strategy
+
+We use a simple feature-branch workflow ([ADR-002](../architecture-decision-records/ADR-002-branching-strategy.md)):
+
+- **`main`** — Always deployable, protected. Only receives changes via Pull Request.
+- **`feature/US-XXX-short-description`** — One branch per user story. Create when starting work; open a PR to merge into `main` when done.
+
+### Workflow
+
+1. Create a feature branch from `main`: `git checkout -b feature/US-XXX-short-description`
+2. Commit on the feature branch using this template
+3. When the story is complete, open a PR to merge into `main`
+4. Review, merge, then delete the feature branch
 
 ---
 
@@ -165,6 +181,6 @@ Refs DEF-015
 
 ---
 
-**Last Updated**: 2025-01-27  
-**Version**: 1.1.0
+**Last Updated**: 2026-03-07  
+**Version**: 1.2.0
 

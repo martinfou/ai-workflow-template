@@ -2,7 +2,7 @@
 
 **Purpose**: First-class process for planning sprints. Run at the start of each sprint, after the retrospective. Ensures items meet Definition of Ready, fit team capacity, and are properly broken down into tasks.
 
-**Related**: [Sprint Planning Template](../templates/sprint-planning-template.md), [Definition of Ready](../criteria/definition-of-ready.md), [Backlog Management Process](backlog-management-process.md), [Sprint Retrospective Process](sprint-retrospective-process.md)
+**Related**: [Sprint Planning Template](../templates/sprint-planning-template.md), [Definition of Ready](../criteria/definition-of-ready.md), [Backlog Management Process](backlog-management-process.md), [Sprint Retrospective Process](sprint-retrospective-process.md), [ADR-002: Branching Strategy](../architecture-decision-records/ADR-002-branching-strategy.md)
 
 ---
 
@@ -90,6 +90,13 @@ Items that do not meet DoR must be refined before selection.
 - [ ] Add user stories with tasks
 - [ ] Add sprint summary (total points, burndown placeholder)
 
+### Step 6b: Create Feature Branches
+
+Per [ADR-002: Branching Strategy](../architecture-decision-records/ADR-002-branching-strategy.md), create one feature branch per user story when starting work:
+
+- [ ] For each user story in the sprint: `git checkout -b feature/US-XXX-short-description`
+- [ ] Work and commit on the feature branch; open a PR to `main` when the story is complete
+
 ### Step 7: Update Backlog
 
 - [ ] Change status of selected items to ⏳ In Progress
@@ -108,6 +115,7 @@ Items that do not meet DoR must be refined before selection.
 | 4 | Select items in dependency and priority order |
 | 5 | Break down into tasks with technical references |
 | 6 | Create sprint document from template |
+| 6b | Create feature branch per user story when starting work (ADR-002) |
 | 7 | Update backlog status to In Progress |
 
 ---
@@ -120,4 +128,4 @@ Items that do not meet DoR must be refined before selection.
 
 ---
 
-**Last Updated**: 2026-03-06
+**Last Updated**: 2026-03-07
