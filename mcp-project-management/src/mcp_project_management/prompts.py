@@ -18,13 +18,13 @@ def create_user_story(
     acceptance_criteria: str = "",
     dependencies: str = "",
 ) -> str:
-    """Create a user story. Use the create_user_story tool with title, description, acceptance_criteria, priority, story_points. Save to backlog/user-stories/ and add to product backlog."""
+    """Create a user story. Use create_user_story tool. When GITHUB_TOKEN is set, creates a GitHub issue; otherwise creates a markdown file."""
     process = _read("processes/backlog-management-process.md")[:2500]
     return f"""Create a user story with this description: {description}
 {f'Acceptance criteria: {acceptance_criteria}' if acceptance_criteria else ''}
 {f'Dependencies: {dependencies}' if dependencies else ''}
 
-Use the create_user_story tool to create the file and add to product backlog. Provide: title (from description), description, acceptance_criteria, priority (Critical/High/Medium/Low), story_points (Fibonacci: 1,2,3,5,8,13).
+Use the create_user_story tool. When GITHUB_TOKEN is set, it creates a GitHub issue with label user-story and adds to the project. Otherwise it creates a markdown file in backlog/user-stories/ and adds to product backlog. Provide: title (from description), description, acceptance_criteria, priority (Critical/High/Medium/Low), story_points (Fibonacci: 1,2,3,5,8,13).
 
 Process excerpt:
 {process}"""
@@ -36,12 +36,12 @@ def create_defect(
     steps_to_reproduce: str = "",
     priority: str = "Medium",
 ) -> str:
-    """Create a defect report. Use the create_defect tool with title, description, steps_to_reproduce, expected_behavior, actual_behavior, priority. Save to backlog/defects/ and add to product backlog."""
+    """Create a defect report. Use create_defect tool. When GITHUB_TOKEN is set, creates a GitHub issue; otherwise creates a markdown file."""
     return f"""Create a defect report: {description}
 Steps to reproduce: {steps_to_reproduce or 'TBD'}
 Priority: {priority}
 
-Use the create_defect tool to create the file and add to product backlog. Provide: title, description, steps_to_reproduce, expected_behavior, actual_behavior, priority, story_points."""
+Use the create_defect tool. When GITHUB_TOKEN is set, it creates a GitHub issue with label defect. Otherwise it creates a markdown file in backlog/defects/. Provide: title, description, steps_to_reproduce, expected_behavior, actual_behavior, priority, story_points."""
 
 
 @mcp.prompt
@@ -82,11 +82,11 @@ Definition of Ready:
 
 @mcp.prompt
 def start_sprint_planning(sprint_number: int, velocity: int = 8) -> str:
-    """Start sprint planning. Run backlog_metrics, review product backlog, check Definition of Ready, sort by dependencies, suggest items to select."""
+    """Start sprint planning. Run backlog_metrics or get_backlog_metrics_github, review backlog, check Definition of Ready."""
     process = _read("processes/sprint-planning-process.md")
     return f"""Start sprint planning for Sprint {sprint_number}. Team velocity: {velocity} points.
-1. Run backlog_metrics tool
-2. Read pm://product-backlog resource
+1. Run backlog_metrics (file-based) or get_backlog_metrics_github (when GITHUB_TOKEN is set)
+2. Read pm://product-backlog or pm://github/backlog resource
 3. Check items meet Definition of Ready (pm://criteria/definition-of-ready)
 4. Sort by dependencies, suggest items to select
 5. Create sprint document from template
@@ -111,11 +111,11 @@ Process:
 
 @mcp.prompt
 def identify_technical_debt(description: str) -> str:
-    """Identify and capture technical debt. Use create_technical_debt tool to create TD-XXX and add to backlog."""
+    """Identify and capture technical debt. Use create_technical_debt tool. Creates GitHub issue or markdown file."""
     process = _read("processes/technical-debt-identification-process.md")[:1500]
     return f"""Identify technical debt: {description}
 
-Use the create_technical_debt tool to create a TD-XXX item and add to product backlog. Provide: title, description, impact, proposed_solution, priority, story_points.
+Use the create_technical_debt tool. When GITHUB_TOKEN is set, creates a GitHub issue with label technical-debt. Otherwise creates a markdown file. Provide: title, description, impact, proposed_solution, priority, story_points.
 
 Process excerpt:
 {process}"""

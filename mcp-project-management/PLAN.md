@@ -19,13 +19,16 @@ Expose the project-management philosophy and processes as an MCP (Model Context 
 
 ```
 <repo-root>/
-├── project-management/          # created by MCP if missing
-│   ├── scripts/*.sh            # copied from package or repo
+├── project-management/          # created by MCP if missing (no scripts)
 │   ├── processes/*.md
 │   ├── backlog/
 │   ├── templates/
 │   └── criteria/
 └── mcp-project-management/     # MCP package (can live in any repo)
+    ├── scripts/                # scripts live ONLY here
+    │   ├── validate-backlog.sh
+    │   ├── backlog-metrics.sh
+    │   └── ...
     ├── pyproject.toml
     ├── src/mcp_project_management/
     │   ├── __init__.py
@@ -47,6 +50,20 @@ Expose the project-management philosophy and processes as an MCP (Model Context 
 **Project root**: From `PROJECT_ROOT` env or `cwd`. MCP config sets `cwd` to repo.
 **Project-management path**: From `PM_PATH` env or default `project-management/` (relative to project root).
 
+### GitHub integration (optional)
+
+When `GITHUB_TOKEN` is set, backlog items are created as GitHub Issues and managed via GitHub Projects v2.
+
+```
+MCP Tools → github_client.py → GitHub REST (Issues) + GraphQL (Projects v2)
+```
+
+- **Issues API** (REST, PyGithub): create issues, labels, list
+- **Projects API** (GraphQL, gql): add to project, update Status, Story Points
+- **Labels**: `user-story`, `defect`, `technical-debt`, `retrospective-improvement`, `priority:*`
+- **Status**: Project column (Todo, In Progress, Done)
+- **Fallback**: Without `GITHUB_TOKEN`, file-based tools unchanged
+
 ---
 
 ## 1. Tools
@@ -64,7 +81,7 @@ Expose the project-management philosophy and processes as an MCP (Model Context 
 | `lint_project_management` | lint-project-management.sh | (none) |
 | `prepare_gap_check` | prepare-gap-check.sh | (none) |
 
-**Script runner**: `subprocess.run()` with `cwd=project_root`, `capture_output=True`, `text=True`, `timeout=60`. Project root from `PROJECT_ROOT` env or `Path.cwd()`.
+**Script runner**: Scripts run from `mcp-project-management/scripts/` only. `subprocess.run()` with `cwd=project_root`, `capture_output=True`, `text=True`, `timeout=60`. Project root from `PROJECT_ROOT` env or `Path.cwd()`.
 
 ### File-writing tools (3)
 
@@ -81,7 +98,7 @@ Expose the project-management philosophy and processes as an MCP (Model Context 
 - Append table row to product-backlog.md (parse table, insert row, write back)
 - If project-management/ missing: run `ensure_project_management()` first
 
-**ensure_project_management()**: Create folder structure + minimal files. Use `importlib.resources.files()` to read bundled data from package. Create: backlog/, user-stories/, defects/, technical-debt/, retrospective-improvements/, processes/, templates/, criteria/, sprints/, architecture-decision-records/, scripts/. Copy bundled templates to templates/, scripts to scripts/, product-backlog.md to backlog/. Bundle: user-story-template, defect-template, technical-debt-template, product-backlog-template, INDEX.md, README.md, and all 9 scripts. Ensures "any repo" works without cloning ai-workflow-template.
+**ensure_project_management()**: Create folder structure + minimal files. Use `importlib.resources.files()` to read bundled data from package. Create: backlog/, user-stories/, defects/, technical-debt/, retrospective-improvements/, processes/, templates/, criteria/, sprints/, architecture-decision-records/. Copy bundled templates. Scripts are NOT copied — MCP server runs scripts only from `mcp-project-management/scripts/`.
 
 ---
 

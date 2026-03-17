@@ -60,6 +60,34 @@ def get_product_backlog() -> str:
     return _read(get_pm_path() / "backlog" / "product-backlog.md")
 
 
+@mcp.resource("pm://github/backlog")
+def get_github_backlog() -> str:
+    """Backlog from GitHub Issues when GITHUB_TOKEN is set. Lists user stories, defects, technical debt."""
+    import os
+
+    if not os.environ.get("GITHUB_TOKEN"):
+        return "GITHUB_TOKEN not set. Set it to fetch backlog from GitHub."
+    try:
+        from .github_client import GitHubClient
+
+        client = GitHubClient()
+        if not client.is_configured:
+            return "GitHub not configured: set GITHUB_OWNER and GITHUB_REPO."
+        lines = ["# Backlog (GitHub)\n"]
+        for label, name in [
+            ("user-story", "User Stories"),
+            ("defect", "Defects"),
+            ("technical-debt", "Technical Debt"),
+        ]:
+            issues = client.list_issues_by_labels([label], state="open")
+            lines.append(f"\n## {name}\n")
+            for i in issues:
+                lines.append(f"- #{i['number']} {i['title']}")
+        return "\n".join(lines)
+    except Exception as e:
+        return f"GitHub error: {e}"
+
+
 @mcp.resource("pm://processes/{process}")
 def get_process(process: str) -> str:
     """Process document (e.g. backlog-management, sprint-planning, doc-code-consistency)."""

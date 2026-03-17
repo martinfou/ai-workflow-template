@@ -49,7 +49,6 @@ def ensure_project_management() -> str:
         pm / "criteria",
         pm / "sprints",
         pm / "architecture-decision-records",
-        pm / "scripts",
     ]
     for d in dirs:
         d.mkdir(parents=True, exist_ok=True)
@@ -88,13 +87,5 @@ def ensure_project_management() -> str:
                 if f.suffix == ".md":
                     shutil.copy2(f, pm / subdir / f.name)
 
-    # Copy scripts
-    scripts_dir = data / "scripts"
-    if scripts_dir.exists():
-        for f in scripts_dir.iterdir():
-            if f.suffix == ".sh":
-                dest = pm / "scripts" / f.name
-                shutil.copy2(f, dest)
-                dest.chmod(0o755)
-
-    return f"Created project-management/ at {pm} with templates and scripts."
+    # Scripts are in mcp-project-management/scripts/ — not copied to project-management
+    return f"Created project-management/ at {pm} with templates. Scripts run from mcp-project-management/scripts/."
